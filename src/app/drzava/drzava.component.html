@@ -1,0 +1,33 @@
+<div id="lista">
+    <table class="table table-dark">
+        <thead  style="color: blue;">
+            <tr>
+                <td style="font-weight: bold; font-size: 25px;">Naziv drzave</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let drzave of drzaveLista">
+                <td>{{drzave.Naziv}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<!-- <li class="nav-item">
+    <button class="btn btn-primary" routerLink="drzavaDetalji">Lista država</button>
+  </li> -->
+
+<div id="dodavanje">
+    <form [formGroup]="forma" (ngSubmit)="Spasi()" >
+        <div class="form-group">
+            <label>Unesite naziv drzave</label>
+            <input type="text" class="form-control" formControlName="Naziv" >
+            <span *ngIf="forma.get('Naziv').touched && forma.get('Naziv').hasError('minLength')">Naziv drzave mora imati minimalno pet slova</span>
+        </div>
+        <div class="form-group">
+            <button [disabled]="!forma.valid" class="btn btn-primary">Dodaj drzavu</button>
+        </div>
+    </form>
+</div>
+

@@ -1,0 +1,39 @@
+
+<br>
+<div id="tabela">
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <td style="font-weight: bold; font-size: 25px;color: blue;">Status</td>
+            <td style="font-weight: bold; font-size: 25px;color: blue;">Opis</td>
+            <td style="font-weight: bold; font-size: 25px;color: blue;">Obrisi</td>
+            <td style="font-weight: bold; font-size: 25px;color: blue;">Uredi</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let statusi of SviStatusi">
+            <td>{{statusi.Status}}</td>
+            <td>{{statusi.Opis}}</td>
+            <td ><i (click)="Obrisi(statusi.Id)" class="fa fa-trash" style="font-size:25px;color:red;text-align: center;"></i></td>
+            <td routerLink="/updateStatus/{{statusi.Id}}" class="fa fa-edit" style="font-size:25px;color:orange;text-align: center;"></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+<div id="dodavanje">
+<form [formGroup]="forma" (ngSubmit)="Dodaj()">
+    <div class="form-group">
+        <label>Status:</label>
+        <input type="text" class="form-control" formControlName="Status">
+        <span style="color:red" *ngIf="forma.get('Status').touched && forma.get('Status').hasError('minlength')">Minimalno pet karaktera</span>
+        <span style="color:red" *ngIf="forma.get('Status').touched && forma.get('Status').hasError('required')">Obavezno polje</span>
+    </div>
+    <div class="form-group">
+        <label>Opis:</label>
+        <input type="text" class="form-control" formControlName="Opis">
+        <span style="color:red" *ngIf="forma.get('Opis').touched && forma.get('Opis').hasError('minlength')">Minimalno 5 karaktera</span>
+    </div>
+    <button class="btn btn-primary" [disabled]="!forma.valid">Dodaj</button>
+</form>
+</div>

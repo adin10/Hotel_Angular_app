@@ -1,0 +1,22 @@
+#divzasliku{
+    width: 30%;
+    height: auto;
+    padding-left: 10px;
+    float: left;
+    padding-top: 25px;
+}
+#glavni{
+    width: 100%;
+    float: left;
+    height: auto;
+    position: relative;
+}
+#forma{
+    float: left;
+    width: 70%;
+    height: auto;
+   font-size: 25px;
+   font-weight: bold;
+   padding-top: 30px;
+
+}

@@ -1,0 +1,91 @@
+
+
+
+<!-- <table id="listaGradova">
+
+    <tr>
+        <th *ngFor="let inf of informacije">
+            {{inf}}
+        </th>
+    </tr>
+    <tr *ngFor="let grad of listaGradova">
+        <td *ngFor="let inf of podaci">
+            {{grad[inf]}}
+        </td>
+    </tr>
+</table> -->
+<nav class="navbar">
+    <input class="form-control" type="text" name="NazivGrada" [(ngModel)]="NazivGrada" (ngModelChange)="Search()"
+    placeholder="Unesite naziv grada za pretragu">
+</nav>
+<div id="lista">
+<!-- <div class="form-group">
+    <span>Filter po drzavama</span>
+    <select class="form-control"  formControlName="DrzavaId"  >
+        <option>Odaberite drzavu</option>
+      <option *ngFor="let drzava of drzavafilter" [value]="drzava.Id">
+          {{drzava.Naziv}}
+      </option>
+    </select>
+</div> -->
+
+
+<h3>Lista gradova</h3>
+<table class="table table-dark" id="tabela">
+    <thead style="color: blue;">
+    <tr>
+        <td style="font-weight: bold; font-size: 25px;" (click)="sort(NazivGrada)">Naziv grada&nbsp; <i class="fa fa-sort"></i></td>
+        <td style="font-weight: bold; font-size: 25px;" (click)="sort(PostanskiBroj)">Postanski broj&nbsp; <i class="fa fa-sort"></i></td>
+        <td style="font-weight: bold; font-size: 25px;">Drzava</td>
+        <td style="font-weight: bold; font-size: 25px;">Obrisi</td>
+        <td style="font-weight: bold; font-size: 25px;">Uredi</td>
+    </tr>
+</thead>
+<tbody>
+    <tr style="color: black;" *ngFor="let grad of listaGradova | orderBy : key : reverse | paginate : {itemsPerPage:5,currentPage:p};">
+        <td> {{grad.NazivGrada}} </td>
+        <td> {{grad.PostanskiBroj}}</td>
+        <td>{{grad.drzava.Naziv}}</td>
+        <td><i (click)="ObrisiGrad(grad.Id)" class="fa fa-trash" style="font-size:25px;color:red;text-align: center;"></i></td>
+        <td routerLink="/updateGrad/{{grad.Id}}"><i class="fa fa-edit" style="font-size:25px;color:orange;text-align: center;"></i></td> 
+    </tr>
+</tbody>
+<pagination-controls (pageChange)="p = $event"></pagination-controls>
+</table>
+</div>
+
+<div id="dodavanje">
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Uspjesno dodano!</strong> Uspjesno ste dodali novi grad.
+        <button (click)="CloseClick()" type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+<h2 style="padding-left:20px">Unesite podatke grada</h2>
+<div class="container">
+   <form [formGroup]="forma" (ngSubmit)="onSubmit()">  
+       <!-- (ngSubmit)="Dodaj(form.value)" -->
+        <div class="form-group">
+            <label>Unesite naziv grada</label>
+            <input type="text" formControlName="NazivGrada" class="form-control"  >
+            <span style="color:red" *ngIf="forma.get('NazivGrada').touched && forma.get('NazivGrada').hasError('minlength')">Naziv mora imati minimalno 5 karaktera</span>
+            <span style="color:red" *ngIf="forma.get('NazivGrada').touched && forma.get('NazivGrada').hasError('required')">Obavezno polje</span>
+        </div>
+        <div class="form-group">
+            <label>Postanski broj</label>
+            <input type="text" formControlName="PostanskiBroj" class="form-control"  >
+            <span style="color:red" *ngIf="forma.get('PostanskiBroj').touched && forma.get('PostanskiBroj').hasError('required')">Obavezno polje</span>
+        </div>
+        <div class="form-group">
+            <label>Drzava:</label>
+            <select class="form-control"  formControlName="DrzavaId"  >
+                <option>Odaberite drzavu</option>
+              <option *ngFor="let drzava of drzavafilter" [value]="drzava.Id">
+                  {{drzava.Naziv}}
+              </option>
+            </select>
+        </div>
+        <button [disabled]="!forma.valid" class="btn btn-primary" >Dodaj</button>
+    </form>
+</div>
+</div>

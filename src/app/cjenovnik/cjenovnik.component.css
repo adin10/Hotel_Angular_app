@@ -1,0 +1,15 @@
+#tabela{
+    width:50%;
+    height: auto;
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#dodavanje{
+    width: 50%;
+    height: auto;
+    float: left;
+}
+h3{
+    padding-left: 20px;
+}

@@ -1,0 +1,18 @@
+<div id="novosti" *ngFor="let novost of listaNovosti">
+    <div id="glavni">
+   <h1 style="font-size: 40px;">{{novost.Naslov}}</h1> 
+    <br>
+   <p>{{novost.Sadrzaj}}</p> 
+  
+    <p style="font-weight: bold; font-size: 20px;">Datum objave</p>
+   <p>{{novost.DatumObjave | date}}</p>
+   <br>
+</div>
+
+    <div id="autor">
+    <span>Obavijest napisao  {{novost.Osoblje.Ime +" "+ novost.Osoblje.Prezime }}</span>
+</div>
+</div>
+<br>
+
+    

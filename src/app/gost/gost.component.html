@@ -1,0 +1,30 @@
+<h3>Lista gostiju</h3>
+
+<table  style="border: 1px solid black;" class="table table-dark">
+    <thead style="color: blue;">
+        <tr>
+        <td style="font-weight: bold; font-size: 25px;">Ime</td>
+        <td style="font-weight: bold; font-size: 25px;">Prezime</td>
+        <td style="font-weight: bold; font-size: 25px;">Email</td>
+        <td style="font-weight: bold; font-size: 25px;">Telefon</td>
+        <td style="font-weight: bold; font-size: 25px;">Grad</td>
+        <td  style="font-weight: bold; font-size: 25px;">Korisnicko ime</td>
+        <td style="font-weight: bold; font-size: 25px;">Lozinka</td>
+        <td style="font-weight: bold; font-size: 25px;">Potvrdi Lozinku</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let gosti of ListaGostiju ">
+            <td>{{gosti.Ime}} </td>
+            <td>{{gosti.Prezime}}</td>
+            <td>{{gosti.Email}}</td>
+            <td>{{gosti.Telefon}}</td>
+            <td>{{gosti.Grad.NazivGrada}}</td>
+            <td>{{gosti.KorisnickoIme}}</td>
+            <td>{{gosti.LozinkaHash}}</td>
+            <td>{{gosti.LozinkaSalt}}</td>
+        </tr>
+    </tbody>
+</table>
+
+  

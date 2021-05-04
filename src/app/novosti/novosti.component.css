@@ -1,0 +1,17 @@
+
+#novosti{
+width: 100%;
+padding-left: 200px;
+padding-right: 200px;
+}
+#glavni{
+    width: 70%;
+    float: left;
+    position: relative;
+}
+#autor{
+    float: left;
+    position: relative;
+    width: 30px;
+    font-size: 22px;
+}

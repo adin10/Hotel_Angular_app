@@ -1,0 +1,38 @@
+
+<div id="glavni" *ngFor="let sobe of ListaSoba" >
+<div id="divzasliku">
+    <img height="200px" width="400px" [src]="'data:image/jpeg;base64,'+sobe.Slika" class="img-responsive" /> 
+    <!-- // ovo probaj za sliku -->
+</div>
+<div id="divzapodatke">
+    <strong>Broj sobe</strong>
+    {{sobe.BrojSobe}}
+    <br>
+    <strong>Broj sprata</strong>
+    {{sobe.BrojSprata}}
+    <br>
+   <strong>Opis sobe</strong>
+   {{sobe.OpisSobe}}
+   <br>
+   <!-- <strong>Obrisi sobu</strong>
+   <td><i (click)="obrisiSobu(sobe.Id)"class="fa fa-trash" style="font-size:25px;color:red;text-align: center;" ></i></td> -->
+   
+   <button *ngIf="prijavljen"  routerLink="/rezervacija/{{sobe.Id}}" >Rezervisi sobu</button>
+   <div>
+   <span style="color: orangered; font-size: 25px;" *ngIf="!prijavljen">Da bi rezervisali sobu morate se prijaviti</span>
+   <button *ngIf="!prijavljen" class="btn btn-primary" routerLink="/auth">Prijavi se</button>
+</div>
+
+</div>
+</div>
+<br>
+
+<button style="color:blue; background-color: chartreuse;" routerLink="/dodajsobu">Dodaj novu sobu</button>
+
+<!-- <ol>
+    <li *ngFor="let sobe of ListaSoba">
+        {{sobe.brojSprata}}  {{sobe.brojSobe}} {{sobe.OpisSobe}} {{sobe.Slika}} {{sobe.sobaStatus}}
+    </li>
+</ol> -->
+
+

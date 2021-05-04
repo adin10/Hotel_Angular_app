@@ -1,0 +1,60 @@
+<h3>Trenutacno u ponudi: </h3>
+
+<div id="tabela">
+<table class="table table-dark">
+    <thead style="color:blue;">
+        <tr>
+            <td style="font-weight: bold; font-size: 25px;">Broj sobe</td>
+            <td style="font-weight: bold; font-size: 25px;">Slike</td>
+            <td style="font-weight: bold; font-size: 25px;">Broj dana</td>
+            <td style="font-weight: bold; font-size: 25px;">Cijena</td>
+            <td style="font-weight: bold; font-size: 25px;">Obrisi</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let cijena of ListaCijena | paginate : {itemsPerPage:3,currentPage:p};">
+            <td style="padding-top: 40px;">{{cijena.Soba.BrojSobe}}</td>
+            <td>
+                <img height="80px" width="130px" [src]="'data:image/jpeg;base64,'+cijena.Soba.Slika" class="img-responsive" /> 
+            </td>
+            <td style="padding-top: 40px;">{{cijena.BrojDana}}</td>
+            <td style="padding-top: 40px;">{{cijena.Cijena}} KM</td>   
+            <td><i class="fa fa-trash" style="color:red;font-size: 25px;padding-top: 25px;" (click)="Obrisi(cijena.Id)"></i></td>
+        </tr>
+    </tbody>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+   
+ </table>
+
+</div>
+
+<div id="dodavanje">
+ 
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Uspjesno dodano!</strong> Uspjesno ste dodali novu cijenu u ponudu.
+        <button (click)="CloseClick()" type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <h3>Dodaj novu cijenu u bazu </h3>
+ <form [formGroup]="forma" (ngSubmit)="Spasi()">
+    <select class="form-control" formControlName="SobaId">
+        <label>ODABERITE SOBU</label>
+        <option>Odaberite sobu</option>
+        <option *ngFor="let soba of ListaSoba" [value]="soba.Id">
+            <td>{{soba.BrojSobe}}</td>
+        </option>
+    </select>
+    <div class="form-group">
+    <label>Broj dana</label>
+    <input class="form-control" formControlName="BrojDana"> 
+</div>
+<div class="form-group">
+    <label>Cijena</label>
+    <input class="form-control" formControlName="Cijena" >
+</div>
+<div class="form-group">
+    <button [disabled]="!forma.valid" class="btn btn-success">Dodaj</button>
+</div>
+ </form>
+</div>

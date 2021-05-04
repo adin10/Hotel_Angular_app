@@ -1,0 +1,32 @@
+<h2>Uredite podatke grada</h2>
+<form [formGroup]="uredi" (ngSubmit)="Uredi()">  
+     <div class="form-group">
+         <label>Unesite naziv grada</label>
+         <input type="text" formControlName="NazivGrada" class="form-control"  >
+         <span style="color:red" *ngIf="uredi.get('NazivGrada').touched && uredi.get('NazivGrada').hasError('minlength')">Naziv mora imati minimalno 5 karaktera</span>
+         <span style="color:red" *ngIf="uredi.get('NazivGrada').touched && uredi.get('NazivGrada').hasError('required')">Obavezno polje</span>
+     </div>
+     <div class="form-group">
+         <label>Postanski broj</label>
+         <input type="text" formControlName="PostanskiBroj" class="form-control"  >
+         <span style="color:red" *ngIf="uredi.get('PostanskiBroj').touched && uredi.get('PostanskiBroj').hasError('required')">Obavezno polje</span>
+     </div>
+     <div class="form-group">
+         <label>Drzava:</label>
+         <select class="form-control"  formControlName="DrzavaId"  >
+             <option>Odaberite drzavu</option>
+           <option *ngFor="let drzava of drzavafilter" [value]="drzava.Id">
+               {{drzava.Naziv}}
+           </option>
+         </select>
+     </div>
+     <button [disabled]="!uredi.valid" class="btn btn-primary" >Uredi</button>
+ </form>
+ <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Uspjesno dodano!</strong> Uspjesno ste uredili podatke grada.
+    <button (click)="CloseClick()" type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <br>
+  <i style="text-align: right; font-size: 30px;background-color: darkslategray;color: white;" class="far fa-hand-point-left" routerLink="/grad">Lista gradova:</i>

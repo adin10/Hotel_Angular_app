@@ -1,0 +1,28 @@
+<p>reactive-forms-tuttorial works!</p>
+<form [formGroup]="reactive"(ngSubmit)="Spasi();">
+    <h3>reactive forms tuttorial</h3>
+    <div class="form-group" >
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" formControlName="email">
+    <span *ngIf="reactive.get('email').touched && reactive.get('email').hasError('required')">Morate unijeti email adresu</span>
+    <span *ngIf="reactive.get('email').touched && reactive.get('email').hasError('email')">Email adresa nije validna</span>
+    <span *ngIf="reactive.get('email').touched && reactive.get('email').hasError('minlength')">Email adresa mora imati minimalno 5 karaktera</span>
+    </div>
+    
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" formControlName="pass">
+    </div>
+
+    <div class="form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="check">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="!reactive.valid" >Submit</button>
+    <button type="submit" class="btn btn-link" (click)="Ocisti()">Ocisti podatke u formi</button>
+  </form>
+<div>
+ Unesen je slijedeći email:  {{unesenaSlova}}
+
+</div>

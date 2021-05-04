@@ -1,0 +1,54 @@
+<div id="tabela">
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <td style="font-weight: bold; font-size: 25px;color: blue;" >Ime</td>
+            <td  style="font-weight: bold;font-size: 25px;color: blue;">Prezime</td>
+            <td  style="font-weight: bold;font-size: 25px;color: blue;">Email</td>
+            <td  style="font-weight: bold;font-size: 25px;color: blue;">KorisnickoIme</td>
+            <td  style="font-weight: bold;font-size: 25px;color: blue;">Telefon</td>
+            <td  style="font-weight: bold;font-size: 25px;color: blue;">Slika</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let osoblje of listaOsoblja">
+            <td style="padding-top: 40px;">{{osoblje.Ime}}</td>
+            <td  style="padding-top: 40px;">{{osoblje.Prezime}}</td>
+            <td  style="padding-top: 40px;">{{osoblje.Email}}</td>
+            <td  style="padding-top: 40px;">{{osoblje.KorisnickoIme}}</td>
+            <td  style="padding-top: 40px;">{{osoblje.Telefon}}</td>
+            <td>
+                <img height="100px" width="200px" [src]="'data:image/jpeg;base64,'+osoblje.Slika" class="img-responsive" /> 
+            </td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+<div id="dodavanje">
+    <!-- <form [formGroup]="forma" (ngSubmit)="Spasi()">
+        <div class="form-group input-group-lg">
+            <label>unesite Broj sobe</label>
+            <input class="form-control" formControlName="Ime">
+        </div>
+        <div class="form-group input-group-lg">
+            <label>unesite Broj sprata</label>
+            <input class="form-control"  formControlName="Prezime">
+        </div>
+        <div class="form-group input-group-lg">
+            <label>Opis sobe</label>
+            <input class="form-control"  formControlName="Email">
+        </div>
+        <div class="form-group input-group-lg">
+            <label>unesite Broj sobe</label>
+            <input class="form-control" formControlName="KorisnickoIme">
+        </div>
+        <div class="form-group input-group-lg">
+            <label>unesite Broj sprata</label>
+            <input class="form-control"  formControlName="Telefon">
+        </div>
+        <app-upload (onUploadFinished)="uploadFinished($event)" ></app-upload>
+    </form> -->
+</div>

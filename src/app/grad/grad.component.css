@@ -1,0 +1,42 @@
+/* #listaGradova{
+    width: 80%;
+    left: 50%;
+    right: 50%;
+    border: 1px solid black;
+    padding: 10px;
+} */
+#tabela{
+    padding:10px;
+    border:1px solid black;
+    width: 100%;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+    font-size: 20px;
+    
+}
+h3{
+    margin-top: 40px;
+    
+}
+
+.list-group{
+    width: auto;
+    float: left;
+
+}
+#lista{
+    width: 50%;
+    height: 500px;
+    float: left;
+    padding-left: 10px;
+}
+#dodavanje{
+    width: 50%;
+   padding-right: 7px;
+    float: left;
+}
+.navbar{
+    width:975px;
+}

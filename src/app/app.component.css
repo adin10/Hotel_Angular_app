@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+}
+h1{
+    font-weight: bold;
+    font-size: 50px;
+    
+    text-align: center;
+}
+li{
+    padding:10px;
+}
+nav{
+   
+    background-color:black;
+}
+#glavni{
+    width:auto;
+    height: 964px;
+    background-image: url("C:/Users/Adin/Desktop/hotel.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:white;
+}
+#header{
+    width:100%;
+    height: 17%;
+    float: left;
+}
+#glavniDio{
+    width: 100%;
+    height: 73%;
+    float: left;
+}
+#footer{
+    width: 100%;
+    height: 10%;
+    
+    float: left;
+}

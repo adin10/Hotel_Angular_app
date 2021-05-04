@@ -1,0 +1,52 @@
+<div id="dodavanje">
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Uspjesno dodano!</strong> Uspjesno ste rezervisali sobu.
+        <button (click)="CloseClick()" type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <form [formGroup]="forma" (ngSubmit)="Dodaj()">
+        <!-- <div class="form-group">
+            <label>Gost:</label>
+            <select class="form-control" formControlName="gostId">
+                <option>Odaberite gosta</option>
+                <option *ngFor="let gost of listaGostiju" [value]="gost.Id">
+                    {{gost.Ime}} {{gost.Prezime}}
+                </option>
+            </select>
+            <span style="color:red" *ngIf="forma.get('gostId').touched && forma.get('gostId').hasError('required')">Obavezno polje</span>
+<h3 formControlName="gostId"> {{gost.Ime}} {{gost.Prezime}}</h3>
+        </div> -->
+        <div class="form-group">
+            <label>Ime i prezime</label>
+            <select class="form-control" formControlName="gostId">
+            <option [value]="gost.Id">
+                {{gost.Ime}} {{gost.Prezime}}
+            </option>
+        </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Soba:</label>
+            <select class="form-control" formControlName="sobaId">
+                <option>Odaberite sobu</option>
+                <option *ngFor="let sobe of listaSoba" [value]="sobe.Id"> 
+                    {{sobe.BrojSobe}}
+                </option>
+            </select>
+            <span style="color:red" *ngIf="forma.get('sobaId').touched && forma.get('sobaId').hasError('required')">Obavezno polje</span>
+        </div>
+        <div class="form-group">
+            <label>Datum rezervacije</label>
+            <input type="date" formControlName="DatumRezervacije" class="form-control"  >
+            <span style="color:red" *ngIf="forma.get('DatumRezervacije').touched && forma.get('DatumRezervacije').hasError('required')">Obavezno polje</span>
+        </div>
+        <div class="form-group">
+            <label>Zavrsetak rezervacije</label>
+            <input type="date" formControlName="ZavrsetakRezervacije" class="form-control"  >
+            <span style="color:red" *ngIf="forma.get('ZavrsetakRezervacije').touched && forma.get('ZavrsetakRezervacije').hasError('required')">Obavezno polje</span>
+        </div>
+        <button class="btn btn-primary" [disabled]="!forma.valid">Dodaj</button>
+    </form>
+</div>
+

@@ -1,0 +1,42 @@
+<div id="glavni" >
+<div id="divzasliku " *ngFor="let slike of listasoba">
+  <p>Broj sobe: {{slike.BrojSobe}}</p>
+    <img  height="250px" width="450px"  [src]="'data:image/jpeg;base64,'+slike.Slika" class="img-responsive" /> <br>
+</div>
+<div id="forma">
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>Uspjesno dodano!</strong> Uspjesno ste ostavili svoj komentar.
+        <button (click)="CloseClick()" type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <form [formGroup]="form" (ngSubmit)="Spasi()">
+        <div class="form-group">
+            <label>Ime i prezime</label>
+            <select class="form-control" formControlName="gostId">
+            <option [value]="gost.Id">
+                {{gost.Ime}} {{gost.Prezime}}
+            </option>
+        </select>
+        </div>
+        <div class="form-group">
+        <label>Soba:</label>
+        <select class="form-control" formControlName="sobaId">
+            <option>Odaberite sobu</option>
+            <option *ngFor="let sobe of listasoba" [value]="sobe.Id"> 
+                {{sobe.BrojSobe}}
+            </option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Ocjena</label>
+        <input type="text" formControlName="ocjena" class="form-control">
+    </div>
+    <div class="form-group">
+        <label>Komentar</label>
+        <input type="text" formControlName="komentar" class="form-control">
+    </div>
+    <button class="btn btn-primary" [disabled]="!form.valid" >Dodaj</button>
+    </form>
+</div>
+</div>

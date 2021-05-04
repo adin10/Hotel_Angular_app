@@ -1,0 +1,17 @@
+
+<div id="dodavanje">
+    <form [formGroup]="forma" (ngSubmit)="Uredi()">
+        <div class="form-group">
+            <label>Status:</label>
+            <input type="text" class="form-control" formControlName="Status">
+            <span style="color:red" *ngIf="forma.get('Status').touched && forma.get('Status').hasError('minlength')">Minimalno pet karaktera</span>
+            <span style="color:red" *ngIf="forma.get('Status').touched && forma.get('Status').hasError('required')">Obavezno polje</span>
+        </div>
+        <div class="form-group">
+            <label>Opis:</label>
+            <input type="text" class="form-control" formControlName="Opis">
+            <span style="color:red" *ngIf="forma.get('Opis').touched && forma.get('Opis').hasError('minlength')">Minimalno 5 karaktera</span>
+        </div>
+        <button class="btn btn-primary" [disabled]="!forma.valid">Uredi</button>
+    </form>
+    </div>

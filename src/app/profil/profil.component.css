@@ -1,0 +1,27 @@
+
+#podaci{
+    width: 100%;
+    padding-top: 20px;
+
+}
+#imeprezime{
+    width: 25%;
+    float: left;
+}
+#mailtelefon{
+    width: 25%;
+    float: left;
+}
+#korisnickoIme{
+    font-weight: bold;
+    font-size: 30px;
+    width: 50%;
+    float: right;
+}
+label{
+    font-size: 15px;
+}
+h3{
+    width: 100%;
+    float: left;
+}

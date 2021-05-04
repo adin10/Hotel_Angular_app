@@ -1,0 +1,37 @@
+
+/* #navheader{
+    width: 1883px;
+} */
+li{
+   padding-right: 30px;
+    font-size: 20px;
+    padding-top: 10px;
+}
+nav{
+    margin-bottom: 10px;
+}
+ul{
+    list-style-type: none;
+   
+}
+/* #login{ 
+  position: fixed;
+  right: 0;
+  width: 30%;
+}
+#glavni{
+    width: 100%;
+    position: relative;
+}
+#lista{
+    width: 60%;
+    background-color: green;
+    float: left;
+    position: relative;
+}
+#naslov{
+    width: 10%;
+    float: left;
+    position: relative;
+    background-color: yellow;
+} */

@@ -1,0 +1,13 @@
+#lista{
+    width: 50%;
+    height:auto;
+    float: left;
+    padding-left: 18px;
+}
+#dodavanje{
+    width: 50%;
+    height: auto;
+    float: left;
+    padding-left: 20px;
+    padding-right: 20px;
+}
